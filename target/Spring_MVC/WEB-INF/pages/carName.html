@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Create cars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{'/css/main.css'}"/>
+    <link layout:fragment="pageStyleLink"/>
+    <style layout:fragment="pageStyle"></style>
+</head>
+<body>
+
+<div class="container">
+    <div class="col-md-12">
+        <h2 style="text-align: center">List of cars</h2>
+
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th>ID</th>
+                <th>Name of car</th>
+                <th>Name of engine</th>
+                <th>Model</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="cars : ${car}" th:remove="tag">
+                <tr>
+                    <td th:text="${car.id}"></td>
+                    <td th:text="${car.carName}"></td>
+                    <td th:text="${car.carEngine}"></td>
+                    <td th:text="${car.model}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
